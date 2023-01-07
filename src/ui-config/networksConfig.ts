@@ -51,6 +51,15 @@ export type NetworkConfig = {
 export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
+  [ChainId.uzheth]: {
+    name: 'Ethereum Görli',
+    publicJsonRPCUrl: ['https://vm-216.s3it.uzh.ch'],
+    baseAssetSymbol: 'ETH',
+    wrappedBaseAssetSymbol: 'WUZHETH',
+    baseAssetDecimals: 18,
+    //isTestnet: true,
+    networkLogoPath: '/icons/networks/uzheth.svg',
+  },
   [ChainId.goerli]: {
     name: 'Ethereum Görli',
     publicJsonRPCUrl: [
@@ -65,7 +74,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     wrappedBaseAssetSymbol: 'WETH',
     baseAssetDecimals: 18,
     explorerLink: 'https://goerli.etherscan.io',
-    // usdMarket: true,
+    //usdMarket: true,
     isTestnet: true,
     networkLogoPath: '/icons/networks/ethereum.svg',
   },

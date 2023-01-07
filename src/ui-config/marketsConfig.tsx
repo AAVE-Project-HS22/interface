@@ -45,6 +45,7 @@ export type MarketDataType = {
 
 export enum CustomMarket {
   // v3 test networks
+  proto_uzheth_v3 = 'proto_uzheth_v3',
   proto_arbitrum_goerli_v3 = 'proto_arbitrum_goerli_v3',
   proto_mumbai_v3 = 'proto_mumbai_v3',
   proto_fantom_testnet_v3 = 'proto_fantom_testnet_v3',
@@ -73,6 +74,36 @@ export enum CustomMarket {
 export const marketsData: {
   [key in keyof typeof CustomMarket]: MarketDataType;
 } = {
+  [CustomMarket.proto_uzheth_v3]: {
+    v3: true,
+    marketTitle: 'UZHETH Market',
+    chainId: ChainId.uzheth,
+    enabledFeatures: {
+      governance: true,
+      staking: true,
+      liquiditySwap: true,
+      collateralRepay: true,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0xa5d58CF131002F8ec1B27ac6D04d72Eb27D9Eee8'.toLowerCase(),
+      //LENDING_POOL: '0xb06646766E49Fc1A37832b5ff7E009D7823C46f1',
+      WETH_GATEWAY: '0xff36450f4567068E3890D55639b20A95F3384674',
+
+      //REPAY_WITH_COLLATERAL_ADAPTER: '0x80Aca0C645fEdABaa20fd2Bf0Daf57885A309FE6',
+      //SWAP_COLLATERAL_ADAPTER: '0x135896DE8421be2ec868E0b811006171D9df802A',
+      WALLET_BALANCE_PROVIDER: '0x003a1FBB756Aa96a3F074cb7FE36638689DD39d3',
+
+      UI_POOL_DATA_PROVIDER: '0x367abcF0869CB22bBC55c88b7680e93A7f8fdac2',
+
+      UI_INCENTIVE_DATA_PROVIDER: '0x0847509Df63071553bBfdBd51C3EA419D4DDfCb1',
+      //COLLECTOR: '0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c',
+    },
+    halIntegration: {
+      URL: 'https://app.hal.xyz/recipes/aave-track-your-health-factor',
+      marketName: 'aavev2',
+    },
+  },
   [CustomMarket.proto_mainnet]: {
     marketTitle: 'Ethereum',
     chainId: ChainId.mainnet,
